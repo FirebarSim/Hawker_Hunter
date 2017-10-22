@@ -1,0 +1,46 @@
+<Gauge Name="Icon panel" Version="1.0">
+   <!--Saverio Maurri 2004-->
+   <Image Name="Simicon_panel.bmp" Luminous="1"/>
+   <Mouse>
+      <Area Top="17" Left="50" Right="68" Bottom="28">
+         <Cursor Type="Hand"/>
+         <Click>40 (&gt;K:PANEL_ID_TOGGLE)</Click>
+         <Tooltip>Radio Panel</Tooltip>
+      </Area>
+      <Area Top="42" Left="53" Right="71" Bottom="52">
+         <Cursor Type="Hand"/>
+         <Click>50 (&gt;K:PANEL_ID_TOGGLE)</Click>
+         <Tooltip>Autopilot</Tooltip>
+      </Area>
+      <Area Top="2" Left="48" Right="66" Bottom="15">
+         <Cursor Type="Hand"/>
+         <Click>20 (&gt;K:PANEL_ID_TOGGLE)</Click>
+         <Tooltip>Lower Console and Start Panel</Tooltip>
+      </Area>
+      <Area Top="55" Left="54" Right="74" Bottom="67">
+         <Cursor Type="Hand"/>
+         <Click>30 (&gt;K:PANEL_ID_TOGGLE)</Click>
+         <Tooltip>Fuel Panel</Tooltip>
+      </Area>
+      <Area Top="71" Left="58" Right="74" Bottom="83">
+         <Cursor Type="Hand"/>
+         <Click>60 (&gt;K:PANEL_ID_TOGGLE)</Click>
+         <Tooltip>GPS</Tooltip>
+      </Area>
+      <Area Top="75" Left="37" Right="56" Bottom="90">
+         <Cursor Type="Hand"/>
+         <Click Event="ATC"/>
+         <Help ID="HELPID_GAUGE_TOGGLE_ATC_WINDOW"/>
+      </Area>
+      <Area Top="80" Left="18" Right="35" Bottom="96">
+         <Cursor Type="Hand"/>
+         <Click Event="KNEEBOARD_VIEW"/>
+         <Help ID="HELPID_GAUGE_TOGGLE_CHECKLIST_WINDOW"/>
+      </Area>
+      <Area Top="30" Left="50" Right="70" Bottom="42">
+         <Cursor Type="Hand"/>
+         <Click Event="FLIGHT_MAP"/>
+         <Help ID="HELPID_GAUGE_FLIGHT_MAP"/>
+      </Area>
+   </Mouse>
+</Gauge>

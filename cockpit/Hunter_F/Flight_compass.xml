@@ -1,0 +1,33 @@
+<Gauge Name="Flight Compass" Version="2.1">
+   <Image Name="Flight_Compass_Background.bmp" Luminous="0"/>
+   <Element>
+      <Position X="0" Y="0"/>
+      <MaskImage Name="Flight_Compass_Mask.bmp" Luminous="1">
+         <Axis X="68.5" Y="68.5"/>
+      </MaskImage>
+      <Image Name="Flight_Compass_Card.bmp" Luminous="1">
+         <Axis X="68.5" Y="68.5"/>
+      </Image>
+      <Rotate>
+         <Value>(A:Plane heading degrees gyro,radians) /-/</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="Freeze"/>
+            <GAUGE_GYRO_HEADING Action="Freeze"/>
+         </Failures>
+      </Rotate>
+   </Element>
+   <Element>
+      <Position X="68.5" Y="68.5"/>
+      <Image Name="Flight_Compass_Needle.bmp" Luminous="1" PointsTo="North">
+         <Axis X="54" Y="8.5"/>
+      </Image>
+      <Rotate>
+         <Value>(A:Autopilot heading lock dir,radians) (A:Plane heading degrees gyro,radians) -</Value>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Help ID="HELPID_GAUGE_HEADING_INDICATOR"/>
+      <Tooltip ID="TOOLTIPTEXT_HEADING_INDICATOR_HEADING"/>
+      <Area Left="133" Right="161" Top="131" Bottom="159"/>
+   </Mouse>
+</Gauge>

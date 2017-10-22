@@ -1,0 +1,14 @@
+<Gauge Name="Gear unlocked warning" Version="1.1">
+   <!--Saverio Maurri 2004-->
+   <Element>
+      <Select>
+         <Value>(A:gear left position,percent) d (G:Var1) - r (&gt;G:Var1) 0 != 4 * (G:Var2) max -- 0 max d (&gt;G:Var2) 0 !=</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="1">
+            <Image Name="GearRed_warn_on.bmp" Bright="Yes"/>
+         </Case>
+      </Select>
+   </Element>
+</Gauge>

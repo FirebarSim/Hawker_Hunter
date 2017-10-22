@@ -1,0 +1,18 @@
+<Gauge Name="Landing Lights" Version="1.2">
+   <Element>
+      <Select>
+         <Value>(A:Light landing,bool)</Value>
+         <Case Value="0">
+            <Image Name="Navpanel_switch_dwn.bmp" Luminous="1"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="Navpanel_switch_up.bmp" Luminous="1"/>
+         </Case>
+      </Select>
+   </Element>
+   <Mouse>
+      <Tooltip>Landing Light %((A:Light landing,bool))%{if}(on)%{else}(off)</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="LANDING_LIGHTS_TOGGLE"/>
+   </Mouse>
+</Gauge>

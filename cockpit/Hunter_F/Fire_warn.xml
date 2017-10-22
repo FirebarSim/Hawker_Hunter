@@ -1,0 +1,14 @@
+<Gauge Name="Fire Warn" Version="1.0">
+   <!--Saverio Maurri 2004-->
+   <Element>
+      <Select>
+         <Value>(A:General eng rpm:1,RPM) 0.1 &lt;</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="1">
+            <Image Name="Fire_warn_on.bmp" Bright="Yes"/>
+         </Case>
+      </Select>
+   </Element>
+</Gauge>

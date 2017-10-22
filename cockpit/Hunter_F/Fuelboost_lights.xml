@@ -1,0 +1,33 @@
+<Gauge Name="Fuel_level warn" Version="1.0">
+   <Image Name="Boost_pumps_warn_bg.bmp"/>
+   <Element>
+      <Position X="0" Y="0"/>
+      <Select>
+         <Value>(A:Fuel Tank Left Main Level,percent) 10 &lt;= (A:Fuel tank left aux level, percent) 10 &lt;= ||</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="0">
+            <Image Name="Boost_pumps_warn_bg.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="fuel_press_warn_on_1.bmp" Bright="Yes"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="0" Y="0"/>
+      <Select>
+         <Value>(A:Fuel Tank right Main Level,percent) 10 &lt;= (A:Fuel tank right aux level, percent) 10 &lt;= ||</Value>
+         <Case Value="0">
+            <Image Name="Boost_pumps_warn_bg.bmp" Bright="Yes"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="fuel_press_warn_on_2.bmp" Bright="Yes"/>
+         </Case>
+      </Select>
+   </Element>
+   <Mouse>
+      <Tooltip>BINGO Fuel level below 650lbs </Tooltip>
+   </Mouse>
+</Gauge>

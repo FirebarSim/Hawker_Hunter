@@ -1,0 +1,18 @@
+<Gauge Name="Engine Master Switch" Version="1.1">
+   <Element>
+      <Select>
+         <Value>(A:General eng1 generator switch,bool)</Value>
+         <Case Value="0">
+            <Image Name="engine_master_dwn.bmp" Luminous="1"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="engine_master_up.bmp" Luminous="1"/>
+         </Case>
+      </Select>
+   </Element>
+   <Mouse>
+      <Tooltip>Engine Master Switch</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click Event="TOGGLE_ALTERNATOR1"/>
+   </Mouse>
+</Gauge>

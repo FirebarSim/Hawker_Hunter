@@ -1,0 +1,73 @@
+<Gauge Name="Accelerometer/G meter" Version="2.0">
+   <!-- Saverio Maurri 2004-->
+   <Image Name="G_meter_bg.bmp" Luminous="1"/>
+   <!-- ======================== G meter ======================== -->
+   <Element>
+      <Select>
+         <Value>   (A:g force,g force) d (L:Max G Force,number) &gt; if{ d (&gt;L:Max G Force,number) } d (L:Min G Force,number) &lt; if{ d (&gt;L:Min G Force,number) }
+      </Value>
+      </Select>
+   </Element>
+   <Element>
+      <Select>
+         <Value>    (L:Min G Force,number) 0 ==  if{ 1 (&gt;L:Min G Force,number) }
+      </Value>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="71" Y="71"/>
+      <Image Name="G_min_maxNeedle.bmp" PointsTo="East" Luminous="1">
+         <Axis X="24" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="-5" Maximum="1">(L:Min G Force,number)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="-5" X="117" Y="118"/>
+            <Item Value="0" X="11" Y="93"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="360"/>
+      </Rotate>
+   </Element>
+   <Element>
+      <Position X="71" Y="71"/>
+      <Image Name="G_min_maxNeedle.bmp" PointsTo="East" Luminous="1">
+         <Axis X="24" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="1" Maximum="10">(L:Max G Force,number)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="1" X="6" Y="68"/>
+            <Item Value="10" X="134" Y="93"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="360"/>
+      </Rotate>
+   </Element>
+   <Element>
+      <Position X="71" Y="71"/>
+      <Image Name="G_Needle.bmp" PointsTo="East" Luminous="1">
+         <Axis X="24" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="-5" Maximum="10">(A:G FORCE,Gforce)</Value>
+         <Nonlinearity>
+            <Item Value="-5" X="117" Y="118"/>
+            <Item Value="0" X="10" Y="94"/>
+            <Item Value="10" X="134" Y="93"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="360"/>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Area Left="0" Right="28" Top="114" Bottom="143">
+         <Cursor Type="Hand"/>
+         <Tooltip>Reset Min/Max Needles</Tooltip>
+         <Click>(L:Max G Force,number) (L:Max G Force,number) - (&gt;L:Max G Force,number) (L:Min G Force,number) (L:Min G Force,number) - 1 + (&gt;L:Min G Force,number)</Click>
+      </Area>
+   </Mouse>
+</Gauge>

@@ -1,0 +1,26 @@
+<Gauge Name="Horizon Knob" Version="1.0">
+   <!--Copyright 2003 Saverio Maurri SAAF Shack-->
+   <Image Name="Horizon_Knob_Background.bmp"/>
+   <Element>
+      <Position X="13" Y="13"/>
+      <Image Name="Horizon_Knob.bmp">
+         <Axis X="13" Y="13"/>
+      </Image>
+      <Rotate>
+         <Value>(A:Attitude bars position, position) pi *</Value>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_ATTITUDE_INDICATOR_BANK_PITCH"/>
+      <Area Left="1" Right="25" Top="1" Bottom="25">
+         <Area Right="13">
+            <Cursor Type="DownArrow"/>
+            <Click Event="ATTITUDE_BARS_POSITION_DOWN" Repeat="Yes"/>
+         </Area>
+         <Area Left="13">
+            <Cursor Type="UpArrow"/>
+            <Click Event="ATTITUDE_BARS_POSITION_UP" Repeat="Yes"/>
+         </Area>
+      </Area>
+   </Mouse>
+</Gauge>

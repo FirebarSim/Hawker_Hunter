@@ -1,0 +1,36 @@
+<Gauge Name="Flap indicator" Version="1.2">
+   <!--Saverio Maurri 2004-->
+   <Image Name="Flap_ind_bg.bmp" Luminous="1"/>
+   <Element>
+      <Position X="51" Y="130"/>
+      <Image Name="flap_needle.bmp" Luminous="1" PointsTo="West">
+         <Axis X="41" Y="7"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="-50" Maximum="100">(A:ELECTRICAL MASTER BATTERY,bool) if{ (A:TRAILING EDGE FLAPS0 LEFT PERCENT, percent) } els{ -50 }</Value>
+         <Nonlinearity>
+            <Item Value="100" X="53" Y="166"/>
+            <Item Value="50" X="12" Y="127"/>
+            <Item Value="0" X="51" Y="92"/>
+            <Item Value="-50" X="90" Y="131"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="25"/>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="Freeze"/>
+         </Failures>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Area Left="0" Top="0" Width="99" Height="178">
+         <Tooltip>Flap Position Indicator</Tooltip>
+         <Area Bottom="90">
+            <Cursor Type="UpArrow"/>
+            <Click Event="FLAPS_DECR"/>
+         </Area>
+         <Area Top="89">
+            <Cursor Type="DownArrow"/>
+            <Click Event="FLAPS_INCR"/>
+         </Area>
+      </Area>
+   </Mouse>
+</Gauge>

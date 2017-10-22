@@ -1,0 +1,23 @@
+<Gauge Name="Oxygen contents" Version="1.1">
+   <Image Name="OXY_bg.bmp" Luminous="1"/>
+   <Element>
+      <Position X="79" Y="79"/>
+      <Image Name="oxy_Needle.bmp" PointsTo="East" Luminous="1">
+         <Axis X="7" Y="6"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="40">(A:Suction Pressure,inHg) 2 /</Value>
+         <Nonlinearity>
+            <Item Value="0" X="45" Y="128"/>
+            <Item Value="10" X="23" Y="58"/>
+            <Item Value="20" X="86" Y="21"/>
+            <Item Value="30" X="138" Y="70"/>
+            <Item Value="40" X="106" Y="129"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="10"/>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Tooltip>%Oxygen Contents% %((A:Suction Pressure,inHg) 2 /)%!3.1f! %Percent%</Tooltip>
+   </Mouse>
+</Gauge>

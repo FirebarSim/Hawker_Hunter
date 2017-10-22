@@ -1,0 +1,20 @@
+<Gauge Name="E2B Compass" Version="1.1">
+   <Image Name="Compass_Background_Generic.bmp"/>
+   <Element>
+      <MaskImage Name="Compass_Background_Generic.bmp">
+         <Axis X="78" Y="34"/>
+      </MaskImage>
+      <Image Name="Compass_Strip.bmp" Luminous="1">
+         <Nonlinearity>
+            <Item Value="360" X="36" Y="25"/>
+            <Item Value="0" X="451" Y="25"/>
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value>(A:Wiskey compass indication degrees,degrees) dnor</Value>
+      </Shift>
+   </Element>
+   <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_WHISKEY_COMPASS"/>
+   </Mouse>
+</Gauge>

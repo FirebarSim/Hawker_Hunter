@@ -1,0 +1,173 @@
+<Gauge Name="Altimeter" Version="1.1">
+   <!--Saverio Maurri 2004 (Gloster Meteor tmk7)-->
+   <Image Name="altimeter_background.bmp" Luminous="1"/>
+   <!-- =======================Adjust Knob ==================== -->
+   <Element>
+      <Position X="57" Y="118"/>
+      <Image Name="altimeter_kohlsman_knob.bmp">
+         <Axis X="9" Y="9"/>
+      </Image>
+      <Rotate>
+         <Value>
+          (A:Kohlsman setting hg,inHg) 
+          29.92 -
+          90 *
+          dgrd
+      </Value>
+         <Delay DegreesPerSecond="90"/>
+      </Rotate>
+   </Element>
+   <!-- ======================= Kohlsman Window ===================== -->
+   <Element>
+      <Position X="45" Y="88"/>
+      <MaskImage Name="altimeter_kohlsman_window.bmp">
+         <Axis X="0" Y="4.5"/>
+      </MaskImage>
+      <Image Name="altimeter_kohlsman_strip_1000.bmp" Luminous="1">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="7"/>
+            <Item Value="9" X="0" Y="91"/>
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value>(A:Kohlsman setting hg,millibar) 1000 div</Value>
+      </Shift>
+   </Element>
+   <Element>
+      <Position X="45" Y="88"/>
+      <MaskImage Name="altimeter_kohlsman_window.bmp">
+         <Axis X="6" Y="4.5"/>
+      </MaskImage>
+      <Image Name="altimeter_kohlsman_strip_100.bmp" Luminous="1">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="7"/>
+            <Item Value="9" X="0" Y="91"/>
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value>(A:Kohlsman setting hg,millibar) 100 div 10 %</Value>
+      </Shift>
+   </Element>
+   <Element>
+      <Position X="45" Y="88"/>
+      <MaskImage Name="altimeter_kohlsman_window.bmp">
+         <Axis X="13" Y="4.5"/>
+      </MaskImage>
+      <Image Name="altimeter_kohlsman_strip_10.bmp" Luminous="1">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="7"/>
+            <Item Value="9" X="0" Y="91"/>
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value>(A:Kohlsman setting hg,millibar) 10 div 10 %</Value>
+      </Shift>
+   </Element>
+   <Element>
+      <Position X="45" Y="88"/>
+      <MaskImage Name="altimeter_kohlsman_window.bmp">
+         <Axis X="20" Y="4.5"/>
+      </MaskImage>
+      <Image Name="altimeter_kohlsman_strip_1.bmp" Luminous="1">
+         <Nonlinearity>
+            <Item Value="0" X="0" Y="7"/>
+            <Item Value="9" X="0" Y="91"/>
+         </Nonlinearity>
+      </Image>
+      <Shift>
+         <Value>(A:Kohlsman setting hg,millibar) 10 %</Value>
+      </Shift>
+   </Element>
+   <!-- ======================= 10,000's Feet Marker ===================== -->
+   <Element>
+      <Position X="59" Y="31"/>
+      <MaskImage Name="altimeter_10,000_indicator_window.bmp">
+         <Axis X="-1" Y="27"/>
+      </MaskImage>
+      <Image Name="altimeter_10,000_indicator.bmp" PointsTo="North" Luminous="1">
+         <Axis X="29" Y="29"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="50000">(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) }</Value>
+         <Failures>
+            <GAUGE_ALTIMETER Action="Freeze"/>
+            <SYSTEM_PITOT_STATIC Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="0" Degrees="-90"/>
+            <Item Value="10000" Degrees="-53.9"/>
+            <Item Value="20000" Degrees="-17.4"/>
+            <Item Value="30000" Degrees="17.7"/>
+            <Item Value="40000" Degrees="54"/>
+            <Item Value="50000" Degrees="90"/>
+         </Nonlinearity>
+      </Rotate>
+   </Element>
+   <!-- ======================= 1000's Feet Needle ===================== -->
+   <Element>
+      <Position X="58.4" Y="57.4"/>
+      <Image Name="altimeter_1000_needle.bmp" PointsTo="North" Luminous="1">
+         <Axis X="5.4" Y="35.4"/>
+      </Image>
+      <Rotate>
+         <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } 10000 %</Value>
+         <Failures>
+            <GAUGE_ALTIMETER Action="Freeze"/>
+            <SYSTEM_PITOT_STATIC Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="0" X="56" Y="11"/>
+            <Item Value="1000" X="85" Y="18"/>
+            <Item Value="2000" X="103" Y="41"/>
+            <Item Value="3000" X="104" Y="71"/>
+            <Item Value="4000" X="88" Y="95"/>
+            <Item Value="5000" X="60" Y="106"/>
+            <Item Value="6000" X="31" Y="97"/>
+            <Item Value="7000" X="12" Y="74"/>
+            <Item Value="8000" X="11" Y="45"/>
+            <Item Value="9000" X="28" Y="20"/>
+         </Nonlinearity>
+      </Rotate>
+   </Element>
+   <!-- ======================= 100's Feet Needle ====================== -->
+   <Element>
+      <Position X="57.8" Y="58.6"/>
+      <Image Name="altimeter_100_needle.bmp" PointsTo="North" Luminous="1">
+         <Axis X="13.8" Y="41.6"/>
+      </Image>
+      <Rotate>
+         <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } 1000 %</Value>
+         <Failures>
+            <GAUGE_ALTIMETER Action="Freeze"/>
+            <SYSTEM_PITOT_STATIC Action="Freeze"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="0" X="56" Y="11"/>
+            <Item Value="100" X="85" Y="18"/>
+            <Item Value="200" X="103" Y="41"/>
+            <Item Value="300" X="104" Y="71"/>
+            <Item Value="400" X="88" Y="95"/>
+            <Item Value="500" X="60" Y="106"/>
+            <Item Value="600" X="31" Y="97"/>
+            <Item Value="700" X="12" Y="74"/>
+            <Item Value="800" X="11" Y="45"/>
+            <Item Value="900" X="28" Y="20"/>
+         </Nonlinearity>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Help ID="HELPID_GAUGE_ALTIMETER"/>
+      <Tooltip ID="TOOLTIPTEXT_ALTIMETER_FEET" MetricID="TOOLTIPTEXT_ALTIMETER_FEET_METERS_SPECIAL"/>
+      <Area Left="48" Top="109" Width="18" Height="18">
+         <Tooltip ID="TOOLTIPTEXT_ALTIMETER_KOHLSMAN_INHG" MetricID="TOOLTIPTEXT_ALTIMETER_KOHLSMAN_MBAR"/>
+         <Area Right="9">
+            <Cursor Type="DownArrow"/>
+            <Click Event="KOHLSMAN_DEC" Repeat="Yes"/>
+         </Area>
+         <Area Left="9">
+            <Cursor Type="UpArrow"/>
+            <Click Event="KOHLSMAN_INC" Repeat="Yes"/>
+         </Area>
+      </Area>
+   </Mouse>
+</Gauge>

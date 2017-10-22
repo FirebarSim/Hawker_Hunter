@@ -1,0 +1,8 @@
+<Gauge Name="Airbrake warning MI" Version="1.1">
+   <!--Saverio Maurri 2004-->
+   <Element>
+      <Select>
+         <Value>(A:Gear handle position,percent) 50 &gt; if{ 50 (&gt;K:SPOILERS_OFF) } }</Value>
+      </Select>
+   </Element>
+</Gauge>

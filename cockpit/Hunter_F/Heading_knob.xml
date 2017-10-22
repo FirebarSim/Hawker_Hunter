@@ -1,0 +1,27 @@
+<Gauge Name="Heading selector knob" Version="2.0">
+   <Image Name="Heading_knob_Background.bmp"/>
+   <Element>
+      <Position X="17.5" Y="17.5"/>
+      <Image Name="Directional_Gyro_Knob_Right.bmp">
+         <Axis X="17.5" Y="17.5"/>
+      </Image>
+      <Rotate>
+         <Value>(A:Autopilot heading lock dir,radians) 3 *</Value>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Help ID="HELPID_GAUGE_HEADING_INDICATOR"/>
+      <Tooltip>Flight Compass Heading Adjuster</Tooltip>
+      <Area Left="1" Right="35" Top="3" Bottom="33">
+         <Help ID="HELPID_GAUGE_HEADING_BUG_ADJUST"/>
+         <Area Right="17">
+            <Cursor Type="DownArrow"/>
+            <Click Event="HEADING_BUG_DEC" Repeat="Yes"/>
+         </Area>
+         <Area Left="17">
+            <Cursor Type="UpArrow"/>
+            <Click Event="HEADING_BUG_INC" Repeat="Yes"/>
+         </Area>
+      </Area>
+   </Mouse>
+</Gauge>

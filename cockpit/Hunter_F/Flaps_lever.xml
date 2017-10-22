@@ -1,0 +1,32 @@
+<Gauge Name="Flap control" Version="1.2">
+   <!--Copyright 2004 Saverio Maurri -->
+   <Image Name="Flap_control_BG.bmp" UseTransparency="Yes"/>
+   <!-- =========================Flap Control =============== -->
+   <Element>
+      <Position X="31" Y="54"/>
+      <Image Name="Flap_knob.bmp">
+         <Axis X="23" Y="12"/>
+      </Image>
+      <Shift>
+         <Value>(A:FLAPS HANDLE PERCENT, percent)</Value>
+         <Nonlinearity>
+            <Item Value="0" X="30" Y="21"/>
+            <Item Value="50" X="29" Y="39"/>
+            <Item Value="100" X="31" Y="54"/>
+         </Nonlinearity>
+      </Shift>
+   </Element>
+   <Mouse>
+      <Area Left="13" Top="8" Right="53" Bottom="70">
+         <Tooltip ID="TOOLTIPTEXT_FLAP_LEVER_DEGREES"/>
+         <Area Bottom="35">
+            <Cursor Type="DownArrow"/>
+            <Click Event="FLAPS_DECR"/>
+         </Area>
+         <Area Top="36">
+            <Cursor Type="UpArrow"/>
+            <Click Event="FLAPS_INCR"/>
+         </Area>
+      </Area>
+   </Mouse>
+</Gauge>

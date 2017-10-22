@@ -1,0 +1,24 @@
+<Gauge Name="Elevator Disconnect Switch" Version="1.0">
+   <!--Saverio Maurri 2004-->
+   <Element>
+      <Select>
+         <Value>(L:Elevator_Power,bool)</Value>
+         <Case Value="0">
+            <Image Name="dp_switch_up.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="dp_switch_dwn.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Select>
+         <Value>(L:Elevator_Power,bool) 1 == if{ 0 (&gt;K:ELEVATOR_SET) }</Value>
+      </Select>
+   </Element>
+   <Mouse>
+      <Tooltip>Elevator Power Switch</Tooltip>
+      <Cursor Type="Hand"/>
+      <Click>(L:Elevator_Power,bool) ! (&gt;L:Elevator_Power,bool)</Click>
+   </Mouse>
+</Gauge>

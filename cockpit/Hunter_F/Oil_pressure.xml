@@ -1,0 +1,27 @@
+<Gauge Name="Oil pressure gauge" Version="1.1">
+   <!--Saverio Maurri 2004-->
+   <Image Name="Oil_press_Background.bmp" Luminous="1"/>
+   <Element>
+      <Position X="71" Y="70"/>
+      <Image Name="Oil_Needle.bmp" PointsTo="North" Luminous="1">
+         <Axis X="8" Y="59"/>
+      </Image>
+      <Rotate>
+         <Value Minimum="0" Maximum="60">(A:ENG1 OIL PRESSURE,PSI)</Value>
+         <Failures>
+            <SYSTEM_ENGINE Action="0"/>
+         </Failures>
+         <Nonlinearity>
+            <Item Value="0" X="21" Y="106"/>
+            <Item Value="10" X="8" Y="66"/>
+            <Item Value="20" X="28" Y="23"/>
+            <Item Value="40" X="114" Y="24"/>
+            <Item Value="60" X="122" Y="108"/>
+         </Nonlinearity>
+         <Delay DegreesPerSecond="360"/>
+      </Rotate>
+   </Element>
+   <Mouse>
+      <Tooltip ID="TOOLTIPTEXT_ENG1_OIL_PRESSURE_PSI"/>
+   </Mouse>
+</Gauge>

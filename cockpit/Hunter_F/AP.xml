@@ -1,0 +1,120 @@
+<Gauge Name="Autopilot Controller Generic" Version="1.0">
+   <!--Saverio Maurri 2003-->
+   <Image Name="AP_BG.bmp"/>
+   <Element>
+      <Position X="36" Y="64"/>
+      <Select>
+         <Value>(A:Autopilot master, bool)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="0">
+            <Image Name="AP_master_button_off.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="AP_master_button_on.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="76" Y="44"/>
+      <Select>
+         <Value>(A:Autopilot altitude lock, bool)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="0">
+            <Image Name="AP_Toggle_switch_off.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="AP_Toggle_switch_on.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="24" Y="15"/>
+      <Select>
+         <Value>(A:Autopilot master, bool)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="1">
+            <Image Name="AP_WARN_ON.bmp" Bright="Yes"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="220" Y="44"/>
+      <Select>
+         <Value>(A:Autopilot heading lock, bool)</Value>
+         <Failures>
+            <SYSTEM_ELECTRICAL_PANELS Action="0"/>
+         </Failures>
+         <Case Value="0">
+            <Image Name="AP_Toggle_switch_off.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="AP_Toggle_switch_on.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="164" Y="44"/>
+      <Select>
+         <Value>(A:Autopilot airspeed hold, bool)</Value>
+         <Case Value="0">
+            <Image Name="AP_Toggle_switch_off.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="AP_Toggle_switch_on.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Element>
+      <Position X="159" Y="16"/>
+      <Text X="69" Y="21" Length="3" Font="Arial" FontWeight="700" Color="#FFF9E1" Adjust="Center" VerticalAdjust="Center" Multiline="No" Luminous="1">
+         <String>%((L:Mach-IAS select, bool))%{if}%((A:Autopilot mach hold var, mach) 100 *)%.%!2d!%{else}%((A:Autopilot airspeed hold var, knots))%!03d!%{end}</String>
+      </Text>
+   </Element>
+   <Element>
+      <Position X="60" Y="17"/>
+      <Text X="67" Y="17" Length="5" Font="Arial" FontWeight="700" Color="#FFF9E1" Adjust="Center" VerticalAdjust="Center" Multiline="No" Luminous="1">
+         <String>%((P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } d 0 == ?)%!05d!</String>
+      </Text>
+   </Element>
+   <Mouse>
+      <Area Left="29" Top="65" Right="66" Bottom="95">
+         <Help ID="HELPID_GAUGE_AUTOPILOT_MASTER"/>
+         <Tooltip ID="TOOLTIPTEXT_AUTOPILOT_MASTER"/>
+         <Cursor Type="Hand"/>
+         <Click Kind="LeftSingle">(&gt;K:AP_MASTER) (&gt;K:AP_PANEL_VS_HOLD)</Click>
+      </Area>
+      <Area Left="80" Top="63" Right="106" Bottom="104">
+         <Help ID="HELPID_AUTOPILOT_ALTITUDE_HOLD"/>
+         <Tooltip ID="TOOLTIPTEXT_AUTOPILOT_ALTITUDE_HOLD"/>
+         <Cursor Type="Hand"/>
+         <Click Event="AP_ALT_HOLD"/>
+      </Area>
+      <Area Left="224" Top="46" Right="248" Bottom="56">
+         <Help ID="HELPID_AUTOPILOT_HEADING_HOLD"/>
+         <Tooltip ID="TOOLTIPTEXT_AUTOPILOT_HEADING_INDICATOR"/>
+      </Area>
+      <Area Left="118" Right="137" Top="54" Bottom="93">
+         <Cursor Type="DownArrow"/>
+         <Click Repeat="Yes">0 (L:Mach-IAS select, bool) if{ (&gt;K:AP_MACH_VAR_DEC) } els{ (&gt;K:AP_SPD_VAR_DEC) }</Click>
+      </Area>
+      <Area Left="139" Right="157" Top="54" Bottom="93">
+         <Cursor Type="UpArrow"/>
+         <Click Repeat="Yes">0 (L:Mach-IAS select, bool) if{ (&gt;K:AP_MACH_VAR_INC) } els{ (&gt;K:AP_SPD_VAR_INC) }</Click>
+      </Area>
+      <Area Left="223" Right="250" Top="60" Bottom="104">
+         <Cursor Type="Hand"/>
+         <Click Event="AP_HDG_HOLD"/>
+      </Area>
+      <Area Left="168" Right="195" Top="60" Bottom="104">
+         <Tooltip ID="TOOLTIPTEXT_AUTOPILOT_SPEED_HOLD"/>
+         <Cursor Type="Hand"/>
+         <Click Event="AP_PANEL_SPEED_HOLD"/>
+      </Area>
+   </Mouse>
+</Gauge>

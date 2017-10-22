@@ -1,0 +1,26 @@
+<Gauge Name="Landing Gear Control" Version="1.1">
+   <!--Saverio Maurri 2004-->
+   <Element>
+      <Select>
+         <Value>(A:Gear handle position,percent) 50 &gt;</Value>
+         <Case Value="0">
+            <Image Name="gear_control_up.bmp"/>
+         </Case>
+         <Case Value="1">
+            <Image Name="gear_control_down.bmp"/>
+         </Case>
+      </Select>
+   </Element>
+   <Mouse>
+      <Help ID="HELPID_GAUGE_GEAR_LEVER"/>
+      <Tooltip ID="TOOLTIPTEXT_GEAR_LEVER"/>
+      <Area Top="54">
+         <Cursor Type="UpArrow"/>
+         <Click Event="GEAR_DOWN"/>
+      </Area>
+      <Area Bottom="54">
+         <Cursor Type="DownArrow"/>
+         <Click Event="GEAR_UP"/>
+      </Area>
+   </Mouse>
+</Gauge>
